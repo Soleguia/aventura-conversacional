@@ -1,0 +1,51 @@
+:root {
+    --colette: #8f055d;
+    --colette-rgb: 143, 5, 93;
+}
+
+.title {
+    margin: 0;
+    margin-bottom: 2vh;
+    color: blue;
+}
+
+.coletteText {
+    position: relative;
+    display: block;
+    margin: 1rem 2rem 3rem;
+    padding: 2rem 3rem;
+    width: 100%;
+    height: auto;
+    background-color: rgba(var(--colette-rgb), .1);
+    border-radius: 1rem;
+}
+.coletteText:before {
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    display: block;
+    width: 0;
+    content: '';
+    border-top: 2rem solid rgba(var(--colette-rgb), .1);
+    border-left: .25rem solid transparent;
+    border-right: 2.25rem solid transparent;
+}
+
+.answers {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.answers .answer {
+
+}
+.answer {
+    display: block;
+    margin: 0 .25rem;
+    padding: .5rem 2rem;
+    background-color: rgba(150,150,150,.4);
+    border: 1px solid black;
+    border-radius: .25rem;
+    cursor: pointer;
+}

@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mentecua/aventura-conversacional.mentecuadrada.es/
+    - /bin/cp -R build/. $DEPLOYPATH
