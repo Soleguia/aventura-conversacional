@@ -3,6 +3,17 @@
     --colette-rgb: 143, 5, 93;
 }
 
+.storyComponent {
+    display: block;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+.image > img {
+    max-width: 100%;
+}
 .title {
     margin: 0;
     margin-bottom: 2vh;

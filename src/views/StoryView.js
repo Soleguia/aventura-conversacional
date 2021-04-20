@@ -7,31 +7,28 @@ export const StoryView = () => {
     const [showFragment, setShowFragment] = useState(false)
 
     useEffect( () => {
-        if(fragments.length > 0){
-            getShowFragment(fragments);
-        } else {
-            fetch('./data/fragments.json')
-                .then( req => req.json() )
-                .then( res => {
-                    getShowFragment(res)
-                    setFragments(res);
-                })
-        }
-    }, [currentFragment])
+        fetch('./data/fragments.json')
+            .then( req => req.json() )
+            .then( res => {
+                getShowFragment(res, currentFragment)
+                setFragments(res);
+            })
+    }, [])
    
-    const getShowFragment = (fragments) => {
-        let newShow = fragments.find( fragment => fragment.id === currentFragment )
+    useEffect( () => {
+        let newShow = getShowFragment(fragments, currentFragment)
         setShowFragment(newShow);
-    }
-    const updateCurrentFragment = (value) => {
-        setCurrentFragment(value)
-        getShowFragment(fragments);
+    }, [fragments, currentFragment])
+
+    const getShowFragment = (fragments, current) => {
+        return fragments.find( fragment => fragment.id === current )
     }
     
-
     return (
         <div className="story">
-            <StoryComponent fragment={showFragment} sendData={updateCurrentFragment}></StoryComponent>
+            {
+                showFragment ? <StoryComponent fragment={showFragment} sendData={setCurrentFragment}></StoryComponent> : ''
+            }
         </div>
     )
 }
