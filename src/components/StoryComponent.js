@@ -14,9 +14,18 @@ function StoryComponent(props) {
     const passAnswer = (answer) => {
         props.sendData(answer)
     }
-        
+    
     return (
         <React.Fragment>
+                {
+                    props.fragment?.image 
+                    ?
+                        <figure className={styles.image}>
+                            <img src={'images/'+props.fragment.image} />
+                        </figure>
+                    :
+                        ''
+                }   
             <div className={styles.coletteText}>{ props.fragment ? parse(props.fragment.colette) : 'Wait for it...' }</div>
             <div className={styles.answers}>
                 { props.fragment ? handleAnswers(props.fragment.answers) : '' }

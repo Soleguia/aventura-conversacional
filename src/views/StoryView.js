@@ -24,8 +24,8 @@ function StoryView() {
         setShowFragment(newShow);
     }
     const updateCurrentFragment = (value) => {
-        console.log({value})
         setCurrentFragment(value)
+        getShowFragment(fragments);
     }
     
 
