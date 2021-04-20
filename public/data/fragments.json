@@ -30,7 +30,7 @@
         "answers": [
             {
                 "value": "Tienes razón, mejor me largo.",
-                "fragment": 1
+                "fragment": 4
             },
             {
                 "value": "En cuanto deje de llover.",
@@ -44,6 +44,16 @@
         "answers": [
             {
                 "value": "Volver al principio",
+                "fragment": 0
+            }
+        ]
+     },
+     {
+        "id": 4,
+        "colette": "Una sabia decisión.",
+        "answers": [
+            {
+                "value": "Volver a intentarlo",
                 "fragment": 0
             }
         ]
