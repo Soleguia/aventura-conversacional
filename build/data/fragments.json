@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "image": "angela-moon.png",
+        "colette": "¡Eh, tú! <br>¿Vas a seguir mucho tiempo ahí mirándome como un idiota o vas a venir a hablar conmigo? <br>Ven, acércate que no muerdo pero mantén las manos quietas. <br>¿Tienes un cigarrillo?",
+        "answers": [
+            {
+                "value": "Sí",
+                "fragment": 2
+            },
+            {
+                "value": "No",
+                "fragment": 1
+            }
+        ]
+     },
+     {
+        "id": 1,
+        "colette": "¿Hola? ¡Seguridad! ¡Un pervertido!",
+        "answers": [
+            {
+                "value": "Volver a intentarlo",
+                "fragment": 0
+            }
+        ]
+     },
+     {
+        "id": 2,
+        "colette": "¡Vaya! Veo que eres de los amables. <br>Por un momento pensé que eras de los pervertidos que espían a las chicas durante los descansos. <br>Mira, como pareces un buen tío te voy a dar el consejo de tu vida: <br>haz la maleta y lárgate de este maldito lugar y no mires atrás.",
+        "answers": [
+            {
+                "value": "Tienes razón, mejor me largo.",
+                "fragment": 4
+            },
+            {
+                "value": "En cuanto deje de llover.",
+                "fragment": 3
+            }
+        ]
+     },
+     {
+        "id": 3,
+        "colette": "Está bien, quédate, es tu decisión. Aunque te diré algo, amigo... <br>Las Vegas no es el lugar donde tus sueños se hacen realidad... es donde vienen a morir. <br>Alguien dijo una vez que este maldito lugar atrae a lo peorcito de la especie humana, <br>la clase de escoria que te vende esperanza a cambio de oportunidades, falsas promesas o burdas mentiras... <br>siempre que estés lo suficientemente desesperado. <br>Y al final acabarás masticado y escupido por esta maldita ciudad del pecado.",
+        "answers": [
+            {
+                "value": "Volver al principio",
+                "fragment": 0
+            }
+        ]
+     },
+     {
+        "id": 4,
+        "colette": "Una sabia decisión.",
+        "answers": [
+            {
+                "value": "Volver a intentarlo",
+                "fragment": 0
+            }
+        ]
+     }
+
+]
