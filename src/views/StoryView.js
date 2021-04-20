@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { StoryComponent } from '../components/StoryComponent'
 
-function StoryView() {
+export const StoryView = () => {
     const [fragments, setFragments] = useState([])
     const [currentFragment, setCurrentFragment] = useState(0)
     const [showFragment, setShowFragment] = useState(false)
@@ -35,5 +35,3 @@ function StoryView() {
         </div>
     )
 }
-
-export { StoryView }

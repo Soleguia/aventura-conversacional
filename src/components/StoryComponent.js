@@ -3,8 +3,9 @@ import parse from 'html-react-parser'
 
 import styles from '../css/story-component.module.css'
 
-function StoryComponent(props) {
+export const StoryComponent = (props) => {
 
+    console.log({props})
     const handleAnswers = (answers) => {
         return answers?.map( answer => {
             return (<button key={answer.fragment} className={styles.answer} onClick={() => passAnswer(answer.fragment)}>{answer.value}</button>)
@@ -33,5 +34,3 @@ function StoryComponent(props) {
         </React.Fragment>
     )
 }
-
-export { StoryComponent };
