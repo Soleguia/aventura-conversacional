@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
+import { StoryComponent } from './StoryComponent'
 
-const HistoryComponent = (props) => {
-    // const [history, setHistory] = useState([])
+const HistoryComponent = memo((props) => {
     console.log({props})
-    return (
-        <h2>Conversación</h2>
 
+
+    return (
+        <React.Fragment>
+            <h2>Conversación</h2>
+            {
+                props.history.map( h => {
+                        console.log({h});
+                        return <StoryComponent fragment={h}></StoryComponent>
+                    }
+                )
+            }
+        </React.Fragment>
     )
-}
+})
 
 export default HistoryComponent

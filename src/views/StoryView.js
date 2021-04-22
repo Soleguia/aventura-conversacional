@@ -6,7 +6,7 @@ export const StoryView = () => {
     const [fragments, setFragments] = useState([])
     const [currentFragment, setCurrentFragment] = useState(0)
     const [showFragment, setShowFragment] = useState(false)
-    const [history, setHistory] = useState({})
+    const [history, setHistory] = useState([])
 
     useEffect( () => {
         fetch('./data/fragments.json')
@@ -28,15 +28,16 @@ export const StoryView = () => {
     
     const nextFragment = (id) => {
         setCurrentFragment(id)
-        setHistory(showFragment)
+        let storyRecord = [...history, showFragment]
+        setHistory(storyRecord)
     }
     return (
         <div className="story">
             {
-                history ? <HistoryComponent history={history}></HistoryComponent> : ''
+                Object.keys(history).length > 0 && <HistoryComponent history={history}></HistoryComponent>
             }
             {
-                showFragment ? <StoryComponent fragment={showFragment} sendData={nextFragment}></StoryComponent> : ''
+                showFragment && <StoryComponent fragment={showFragment} sendData={nextFragment}></StoryComponent>
             }
         </div>
     )

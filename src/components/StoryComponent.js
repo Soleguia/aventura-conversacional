@@ -22,7 +22,7 @@ export const StoryComponent = memo((props) => {
                         props.fragment?.image 
                         ?
                             <figure className={styles.image}>
-                                <img src={'images/'+props.fragment.image} />
+                                <img src={'images/'+props.fragment.image} alt="fragment image" />
                             </figure>
                         :
                             ''
