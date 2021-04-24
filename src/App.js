@@ -1,13 +1,14 @@
 import './App.css';
+import { StoryContextProvider } from './context/StoryContext';
 import { StoryView } from './views/StoryView';
 
 
 function App() {
 
   return (
-    <div className="App">
-      <StoryView></StoryView>
-    </div>
+    <StoryContextProvider>
+        <StoryView></StoryView>
+    </StoryContextProvider>
   );
 }
 

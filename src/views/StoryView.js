@@ -1,10 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import HistoryComponent from '../components/HistoryComponent'
 import { StoryComponent } from '../components/StoryComponent'
+import { StoryNavigation } from '../components/StoryNavigation'
+import { StoryContext } from '../context/StoryContext'
+
+import styles from '../css/story-component.module.css'
 
 export const StoryView = () => {
-    const [fragments, setFragments] = useState([])
-    const [currentFragment, setCurrentFragment] = useState(0)
+    
+    const { story, setStory, currentFragment, setCurrentFragment } =  useContext(StoryContext);
     const [showFragment, setShowFragment] = useState(false)
     const [history, setHistory] = useState([])
 
@@ -12,33 +16,47 @@ export const StoryView = () => {
         fetch('./data/fragments.json')
             .then( req => req.json() )
             .then( res => {
+                setStory(res)
                 getShowFragment(res, currentFragment)
-                setFragments(res);
             })
     }, [])
    
     useEffect( () => {
-        let newShow = getShowFragment(fragments, currentFragment)
+        let newShow = getShowFragment(story, currentFragment)
         setShowFragment(newShow);
-    }, [fragments, currentFragment])
+    }, [story, currentFragment])
 
     const getShowFragment = (fragments, current) => {
         return fragments.find( fragment => fragment.id === current )
     }
     
-    const nextFragment = (id) => {
-        setCurrentFragment(id)
-        let storyRecord = [...history, showFragment]
+    const processAnswer = (answer) => {
+        setCurrentFragment(answer.fragment)
+        let historyFragment = ({...showFragment, answers: showFragment.answers.find( a => a.fragment === answer.fragment)})
+        let storyRecord = [...history, historyFragment]
         setHistory(storyRecord)
     }
     return (
-        <div className="story">
-            {
-                Object.keys(history).length > 0 && <HistoryComponent history={history}></HistoryComponent>
-            }
-            {
-                showFragment && <StoryComponent fragment={showFragment} sendData={nextFragment}></StoryComponent>
-            }
+        <div className="App">
+            <div className="story">
+                {
+                    Object.keys(history).length > 0 && (
+                        <div className={styles.history}>
+                            <HistoryComponent history={history}></HistoryComponent>
+                        </div>
+                    )
+                }
+                <div className={styles.storyComponent}>
+                    {
+                        showFragment && (
+                            <>
+                                <StoryComponent storyFragment={showFragment}></StoryComponent>
+                                <StoryNavigation answers={showFragment.answers} sendData={processAnswer} ></StoryNavigation>
+                            </>
+                        )
+                    }    
+                </div>
+            </div>
         </div>
     )
 }
