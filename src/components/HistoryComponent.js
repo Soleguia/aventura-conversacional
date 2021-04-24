@@ -1,17 +1,20 @@
-import React, { useState, memo } from 'react'
+import React, { memo } from 'react'
 import { StoryComponent } from './StoryComponent'
 
+import styles from '../css/story-component.module.css'
+
 const HistoryComponent = memo((props) => {
-    console.log({props})
-
-
     return (
         <React.Fragment>
-            <h2>Conversación</h2>
             {
                 props.history.map( h => {
                         console.log({h});
-                        return <StoryComponent fragment={h}></StoryComponent>
+                        return (
+                            <React.Fragment key={h.id}>
+                                <StoryComponent storyFragment={h}></StoryComponent>
+                                <p className={[styles.storyFragment, styles.storyFragmentAnswer].join(' ')}>{h.answers.value}</p>
+                            </React.Fragment>
+                        )
                     }
                 )
             }
