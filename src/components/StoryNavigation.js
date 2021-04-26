@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import styles from '../css/story-component.module.css'
+// import styles from '../css/story-component.module.css'
 
 export const StoryNavigation = memo((props) => {
     
@@ -10,12 +10,12 @@ export const StoryNavigation = memo((props) => {
     
     return (
         <React.Fragment>
-            <div className={styles.answers}>
+            <div className="answers">
                 { 
                     props.answers && props.answers.map( answer => {
                         return (<button 
                                     key={answer.fragment} 
-                                    className={styles.answer} 
+                                    className="answer" 
                                     onClick={() => passAnswer(answer)}
                                 >
                                     {answer.value}
