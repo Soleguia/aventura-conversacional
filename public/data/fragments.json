@@ -1,5 +1,15 @@
 [
     {
+        "id": "end",
+        "colette": "Aquí termina la historia.",
+        "answers": [
+            {
+                "value": "Volver a empezar",
+                "fragment": 0
+            }
+        ]
+    },
+    {
         "id": 0,
         "image": "angela-moon.png",
         "colette": "¡Eh, tú! <br>¿Vas a seguir mucho tiempo ahí mirándome como un idiota o vas a venir a hablar conmigo? <br>Ven, acércate que no muerdo pero mantén las manos quietas. <br>¿Tienes un cigarrillo?",
@@ -20,7 +30,7 @@
         "answers": [
             {
                 "value": "Volver a intentarlo",
-                "fragment": 0
+                "fragment": "end"
             }
         ]
      },
@@ -44,7 +54,7 @@
         "answers": [
             {
                 "value": "Volver al principio",
-                "fragment": 0
+                "fragment": "end"
             }
         ]
      },
@@ -54,7 +64,7 @@
         "answers": [
             {
                 "value": "Volver a intentarlo",
-                "fragment": 0
+                "fragment": "end"
             }
         ]
      }

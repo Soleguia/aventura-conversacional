@@ -4,7 +4,7 @@ import { StoryComponent } from '../components/StoryComponent'
 import { StoryNavigation } from '../components/StoryNavigation'
 import { StoryContext } from '../context/StoryContext'
 
-import styles from '../css/story-component.module.css'
+// import styles from '../css/story-component.module.css'
 
 export const StoryView = () => {
     
@@ -31,22 +31,24 @@ export const StoryView = () => {
     }
     
     const processAnswer = (answer) => {
+        if(answer.fragment === 'end' || answer.fragment === 0 ){
+            setHistory([])
+        } else {
+            let historyFragment = ({...showFragment, answers: showFragment.answers.find( a => a.fragment === answer.fragment)})
+            let storyRecord = [...history, historyFragment]
+            setHistory(storyRecord)
+        }
         setCurrentFragment(answer.fragment)
-        let historyFragment = ({...showFragment, answers: showFragment.answers.find( a => a.fragment === answer.fragment)})
-        let storyRecord = [...history, historyFragment]
-        setHistory(storyRecord)
     }
     return (
         <div className="App">
             <div className="story">
                 {
                     Object.keys(history).length > 0 && (
-                        <div className={styles.history}>
-                            <HistoryComponent history={history}></HistoryComponent>
-                        </div>
+                        <HistoryComponent history={history}></HistoryComponent>
                     )
                 }
-                <div className={styles.storyComponent}>
+                <div className="storyCurrent">
                     {
                         showFragment && (
                             <>
