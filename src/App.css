@@ -31,7 +31,7 @@ body {
 .story {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 60% 40%;
   padding: 2vh 4vw;
   width: 80%;
   height: 90vh;
@@ -41,7 +41,7 @@ body {
   grid-column: 1;
   grid-row: 1;
   display: block;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   padding: 1rem;
   height: 50vh;
   border: 1px solid var(--colette);
@@ -55,12 +55,16 @@ body {
 }
 .storyFragment {
   position: relative;
+  display: flex;
   overflow: hidden;
 }
 .storyFragment .image {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: block;
+  max-width: 30%;
+
 }
 .image {
   display: flex;
@@ -134,7 +138,9 @@ body {
   border-left: 2.25rem solid transparent;
   border-right: .25rem solid transparent;
 }
-
+.storyCurrent .storyLine {
+  width: 80%;
+}
 .storyLineColette {
   background-color: rgba(var(--colette-rgb), .1);
 }
