@@ -13,7 +13,7 @@ export const StoryView = () => {
     const [history, setHistory] = useState([])
 
     useEffect( () => {
-        fetch('./data/fragments.json')
+        fetch('./data/story.json')
             .then( req => req.json() )
             .then( res => {
                 setStory(res)
