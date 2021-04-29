@@ -14,7 +14,7 @@ export const StoryComponent = memo((props) => {
                             <img src={'images/'+props.storyFragment.image} alt="Illustration" />
                         </figure>
                 }   
-                <div className="storyLine storyLineColette">{ props.storyFragment ? parse(props.storyFragment.message) : 'Wait for it...' }</div>
+                <div className="storyLine storyLineMessage">{ props.storyFragment ? parse(props.storyFragment.message) : 'Wait for it...' }</div>
             </div>
         </React.Fragment>
     )
